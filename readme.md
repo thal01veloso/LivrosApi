@@ -5,7 +5,7 @@ Migração banco de dados
 - dotnet ef databa
 - se update
 EXEMPLO DE REQUISIÇÃO:
-- {
+- ```{
   "editora": "Editora Exemplo",
   "edicao": 1,
   "anoPublicado": "2023",
@@ -26,3 +26,4 @@ EXEMPLO DE REQUISIÇÃO:
     }
   ]
 }
+```
