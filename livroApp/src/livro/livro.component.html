@@ -1,0 +1,16 @@
+<p>livro works!</p>
+
+<h1>Meus Livros</h1>
+<div class="table">
+  <table>
+    <tr>
+      <th>#Id</th>
+      <th>Editora</th>
+    </tr>
+    <tr *ngfor = 'let item of livros'>
+      <td>{{item.id}}</td>
+      <td>{{livros}}</td>
+
+    </tr>
+  </table>
+</div>
