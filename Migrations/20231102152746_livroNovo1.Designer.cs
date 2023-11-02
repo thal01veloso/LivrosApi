@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using livrariaApi.context;
 
@@ -10,9 +11,11 @@ using livrariaApi.context;
 namespace livrariaApi.Migrations
 {
     [DbContext(typeof(LivroDbContext))]
-    partial class LivroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231102152746_livroNovo1")]
+    partial class livroNovo1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,11 +81,9 @@ namespace livrariaApi.Migrations
             modelBuilder.Entity("livrariaApi.models.LivroAssunto", b =>
                 {
                     b.Property<int>("LivroId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("AssuntoId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.HasKey("LivroId", "AssuntoId");
@@ -95,11 +96,9 @@ namespace livrariaApi.Migrations
             modelBuilder.Entity("livrariaApi.models.LivroAutor", b =>
                 {
                     b.Property<int>("LivroId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("AutorId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.HasKey("LivroId", "AutorId");

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using livrariaApi.context;
 
@@ -10,9 +11,11 @@ using livrariaApi.context;
 namespace livrariaApi.Migrations
 {
     [DbContext(typeof(LivroDbContext))]
-    partial class LivroDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231102153131_livroNovo2")]
+    partial class livroNovo2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

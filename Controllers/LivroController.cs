@@ -1,5 +1,7 @@
+using livrariaApi.context;
 using livrariaApi.models;
 using Microsoft.AspNetCore.Mvc;
+using MySqlX.XDevAPI;
 
 namespace livrariaApi.Controllers;
 
@@ -7,26 +9,29 @@ namespace livrariaApi.Controllers;
 [Route("[controller]")]
 public class LivroController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly LivroDbContext _context;
 
-    private readonly ILogger<LivroController> _logger;
-
-    public LivroController(ILogger<LivroController> logger)
+    public LivroController(LivroDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
-
-    [HttpGet(Name = "GetLivros")]
-    public IEnumerable<Livro> Get()
+    [HttpGet]
+    public IEnumerable<Livro> GetClientes()
     {
-        return Enumerable.Range(1, 5).Select(index => new Livro
+        return _context.livros.ToList();
+    }
+    [HttpPost]
+    public async Task<IActionResult> CreateLivros([FromBody] Livro livro)
+    {
+        try
         {
-            AnoPublicado = "teste",
-            
-        })
-        .ToArray();
+        _context.livros.Add(livro);
+        await _context.SaveChangesAsync();
+        return Ok(livro);
+
+        }catch (Exception ex)
+        {
+            throw new Exception(ex.ToString());
+        }
     }
 }

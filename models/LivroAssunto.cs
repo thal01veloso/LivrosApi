@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 namespace livrariaApi.models
 {
     public class LivroAssunto
-{
-    [ForeignKey("Livro")]
-    public int LivroId { get; set; }
+    {
+        
+        
+        [ForeignKey("livros")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int LivroId { get; set; }
 
-    [ForeignKey("Assunto")]
-    public int AssuntoId { get; set; }
+        [ForeignKey("assuntos")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int AssuntoId { get; set; }
 
-    public Livro? Livro { get; set; }
-    public Assunto? Assunto { get; set; }
-}
+        public Livro? Livro { get; set; }
+        public Assunto? Assunto { get; set; }
+    }
 }
