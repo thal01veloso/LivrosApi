@@ -20,7 +20,7 @@ import { ServiceComponent } from 'src/service/service.component';
     FormsModule
   ],
 
-  providers: [ServiceComponent,ServiceComponent],
+  providers: [ServiceComponent,HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

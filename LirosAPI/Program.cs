@@ -11,7 +11,17 @@ builder.Services.AddDbContext<LivroDbContext>(opt => opt.UseMySql(builder.Config
     new MySqlServerVersion(new Version(8, 0, 23))));                                    
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+            .AllowAnyOrigin()
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -25,5 +35,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseCors("AllowSpecificOrigins");
+app.UseCors("AllowAllOrigins");
 
 app.Run();
