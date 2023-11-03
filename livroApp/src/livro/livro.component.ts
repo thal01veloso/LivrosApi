@@ -28,12 +28,13 @@ export class LivroComponent implements OnInit {
     })
   }
   cadastrarLivro(){
-    this.service.cadastrar(this.livro, this.assunto, this.autor).subscribe((livroModificado) => {
-      console.log('Livro cadastrado com sucesso', livroModificado);
-    }, (error) => {
-      console.log('Erro no cadastro', error);
-    });
-
+    debugger
+    this.service.cadastrar(this.livro, this.assunto, this.autor).subscribe(livro=>{
+      this.assunto = new Assunto();
+      this.autor = new Autor();
+      this.livro= new Livro();
+      this.listarProdutos();
+    },err=>{console.log("Erro no cadastro",err)})
   }
 
 }

@@ -15,8 +15,8 @@
       <input placeholder="Nome" type="text" name="nome" [(ngModel)]="livro.editora"><br>
       <input placeholder="Edição" type="number" name="edicao" [(ngModel)]="livro.edicao"><br>
       <input placeholder="Ano Publicado" type="text" name="anoPublicado" [(ngModel)]="livro.anoPublicado"><br>
-      <input placeholder="Assunto" type="text" name="assunto" [(ngModel)]="assunto.assunto"><br>
-      <input placeholder="Nome do autor" type="text" name="autor" [(ngModel)]="autor.autor"><br>
+      <input placeholder="Assunto" type="text" name="assunto" [(ngModel)]="assunto.assunto.descricao"><br>
+      <input placeholder="Nome do autor" type="text" name="autor" [(ngModel)]="autor.autor.nome"><br>
       <button class="cadastrar" type="button" (click)="cadastrarLivro()">Cadastrar</button>
       </div>
   </form>
