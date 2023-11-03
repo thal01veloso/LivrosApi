@@ -21,6 +21,7 @@ public class LivroController : ControllerBase
         return  _context.livros.ToList();
     }
     [HttpPost]
+    [Route("InserirLivros")]
     public async Task<IActionResult> CreateLivros([FromBody] Livro livro)
     {
         try

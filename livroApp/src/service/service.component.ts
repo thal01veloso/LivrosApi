@@ -25,6 +25,7 @@ export class ServiceComponent {
   cadastrar(livro:Livro, assunto: Assunto, autor: Autor ): Observable<any>{
     livro.livroAssuntos?.push(assunto)
     livro.livroAutores?.push(autor)
-    return this.http.post("http://localhost:62701/livro/",livro);
+    return this.http.post("https://localhost:62701/Livro/InserirLivros",livro);
+
   }
 }
